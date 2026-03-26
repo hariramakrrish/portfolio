@@ -16,7 +16,7 @@ export default function Experience() {
           className="mb-16"
         >
           <span className="section-heading">Career</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 text-dark-100">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-3 text-dark-100">
             Professional{" "}
             <span className="gradient-text-accent">experience</span>
           </h2>
@@ -55,12 +55,12 @@ export default function Experience() {
                       <h3 className="text-xl font-bold text-dark-100">
                         {exp.role}
                       </h3>
-                      <p className="text-accent-400 font-medium text-sm">
+                      <p className="text-accent-400 font-medium text-base">
                         {exp.company}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-dark-500">
+                  <div className="flex items-center gap-4 text-base text-dark-500">
                     <span className="flex items-center gap-1.5">
                       <svg
                         className="w-3.5 h-3.5"
@@ -112,7 +112,7 @@ export default function Experience() {
                       <div className="mt-2 shrink-0">
                         <div className="w-1.5 h-1.5 rounded-full bg-accent-500/40 group-hover/item:bg-accent-400 transition-colors" />
                       </div>
-                      <p className="text-dark-400 text-sm leading-relaxed group-hover/item:text-dark-300 transition-colors">
+                      <p className="text-dark-400 text-base leading-relaxed group-hover/item:text-dark-300 transition-colors">
                         {item}
                       </p>
                     </motion.div>
@@ -133,7 +133,7 @@ export default function Experience() {
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs rounded-full bg-accent-500/5 border border-accent-500/10 text-dark-400"
+                      className="px-3 py-1.5 text-sm rounded-full bg-accent-500/5 border border-accent-500/10 text-dark-400"
                     >
                       {tech}
                     </span>

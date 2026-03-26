@@ -24,7 +24,7 @@ export default function About() {
           className="mb-16"
         >
           <span className="section-heading">About Me</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 text-dark-100">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-3 text-dark-100">
             Passionate about building{" "}
             <span className="gradient-text-accent">scalable systems</span>
           </h2>
@@ -51,7 +51,7 @@ export default function About() {
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm text-dark-400">
+                <div className="flex items-center gap-3 text-base text-dark-400">
                   <svg
                     className="w-4 h-4 text-accent-400"
                     fill="none"
@@ -73,7 +73,7 @@ export default function About() {
                   </svg>
                   {personalInfo.location}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-dark-400">
+                <div className="flex items-center gap-3 text-base text-dark-400">
                   <svg
                     className="w-4 h-4 text-accent-400"
                     fill="none"
@@ -101,7 +101,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <p className="text-dark-300 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-dark-300 text-lg sm:text-xl leading-relaxed mb-8">
               {personalInfo.summary}
             </p>
 

@@ -16,7 +16,7 @@ export default function Education() {
           className="mb-16"
         >
           <span className="section-heading">Background</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 text-dark-100">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-3 text-dark-100">
             Education &{" "}
             <span className="gradient-text-accent">certifications</span>
           </h2>
@@ -61,7 +61,7 @@ export default function Education() {
                         <h4 className="font-bold text-dark-100">
                           {edu.degree}
                         </h4>
-                        <p className="text-accent-400 text-sm font-medium">
+                        <p className="text-accent-400 text-base font-medium">
                           {edu.field}
                         </p>
                         {edu.honours && (
@@ -74,7 +74,7 @@ export default function Education() {
                         {edu.year}
                       </span>
                     </div>
-                    <p className="text-dark-500 text-sm mt-2">
+                    <p className="text-dark-500 text-base mt-2">
                       {edu.institution} — {edu.location}
                     </p>
                   </div>
@@ -114,10 +114,10 @@ export default function Education() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-dark-200 text-sm">
+                    <h4 className="font-semibold text-dark-200 text-base">
                       {cert.title}
                     </h4>
-                    <p className="text-dark-500 text-xs mt-0.5">
+                    <p className="text-dark-500 text-sm mt-0.5">
                       {cert.issuer}
                       {cert.detail && ` — ${cert.detail}`}
                     </p>

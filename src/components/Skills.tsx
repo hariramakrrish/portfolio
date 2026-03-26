@@ -50,7 +50,7 @@ export default function Skills() {
           className="mb-16"
         >
           <span className="section-heading">Tech Stack</span>
-          <h2 className="text-3xl sm:text-4xl font-bold mt-3 text-dark-100">
+          <h2 className="text-4xl sm:text-5xl font-bold mt-3 text-dark-100">
             Tools & technologies I{" "}
             <span className="gradient-text-accent">work with</span>
           </h2>
