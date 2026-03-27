@@ -67,10 +67,10 @@ export default function Skills() {
               className="glass-card rounded-2xl p-6 gradient-border group"
             >
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 transition-colors">
+                <div className="w-11 h-11 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 transition-colors border border-accent-500/10">
                   {iconMap[skill.icon]}
                 </div>
-                <h3 className="font-semibold text-dark-200 text-sm">
+                <h3 className="font-bold text-white text-base">
                   {skill.category}
                 </h3>
               </div>

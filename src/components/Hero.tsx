@@ -3,89 +3,101 @@
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 
+const techStack = ["Java", "Spring Boot", "Microservices", "AWS", "PostgreSQL", "Docker"];
+
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20"
     >
-      {/* Background effects */}
+      {/* Rich background layers */}
       <div className="absolute inset-0 grid-bg" />
-      <div className="blob w-[600px] h-[600px] bg-accent-500 top-[-200px] right-[-200px]" />
-      <div className="blob w-[400px] h-[400px] bg-indigo-600 bottom-[-100px] left-[-100px]" />
 
-      {/* Floating orbs */}
-      <motion.div
-        animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-[15%] w-2 h-2 rounded-full bg-accent-400/40"
-      />
-      <motion.div
-        animate={{ y: [15, -15, 15], x: [10, -10, 10] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-[20%] w-3 h-3 rounded-full bg-accent-300/20"
-      />
-      <motion.div
-        animate={{ y: [10, -20, 10] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-[25%] w-1.5 h-1.5 rounded-full bg-emerald-400/30"
-      />
+      {/* Large vivid blobs */}
+      <div className="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-indigo-600 opacity-[0.07] blur-[120px]" />
+      <div className="absolute bottom-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-violet-600 opacity-[0.06] blur-[100px]" />
+      <div className="absolute top-[40%] left-[40%] w-[400px] h-[400px] rounded-full bg-accent-500 opacity-[0.04] blur-[80px]" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Status chip */}
+      {/* Floating particles */}
+      {[
+        { top: "20%", left: "10%", size: "w-1 h-1", delay: 0 },
+        { top: "60%", left: "5%", size: "w-1.5 h-1.5", delay: 1 },
+        { top: "30%", right: "8%", size: "w-1 h-1", delay: 2 },
+        { top: "70%", right: "12%", size: "w-2 h-2", delay: 0.5 },
+        { top: "15%", left: "40%", size: "w-1 h-1", delay: 1.5 },
+        { top: "80%", left: "30%", size: "w-1.5 h-1.5", delay: 3 },
+      ].map((p, i) => (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          key={i}
+          animate={{ y: [-15, 15, -15], opacity: [0.3, 0.8, 0.3] }}
+          transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
+          className={`absolute ${p.size} rounded-full bg-accent-400`}
+          style={{ top: p.top, left: (p as any).left, right: (p as any).right }}
+        />
+      ))}
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+        {/* Status badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/5 border border-accent-500/10 mt-16 mb-8"
+          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 mb-10"
         >
-          <div className="w-2 h-2 rounded-full bg-emerald-400 status-pulse" />
-          <span className="text-xs font-medium text-dark-300">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+          </span>
+          <span className="text-sm font-medium text-emerald-300 tracking-wide">
             Available for opportunities
           </span>
         </motion.div>
 
-        {/* Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        {/* Main heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
+          transition={{ duration: 0.9, delay: 0.1 }}
         >
-          <span className="text-dark-100">{personalInfo.name.split(" ")[0]}</span>
-        </motion.h1>
+          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-3">
+            <span className="text-white">{personalInfo.name.split(" ")[0]}</span>
+          </h1>
+          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-8">
+            <span
+              style={{
+                background: "linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #a78bfa 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {personalInfo.lastName}
+            </span>
+          </h1>
+        </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
-        >
-          <span className="gradient-text-accent">
-            {personalInfo.lastName}
-          </span>
-        </motion.h2>
-
-        {/* Role */}
+        {/* Role badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center justify-center gap-3 mb-6"
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="flex items-center justify-center gap-4 mb-6"
         >
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-accent-500/50" />
-          <span className="text-lg sm:text-xl font-medium text-dark-300">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-accent-500/40 to-accent-500/70" />
+          <span className="text-xl sm:text-2xl font-semibold text-white/70 tracking-wide">
             {personalInfo.title}
           </span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-accent-500/50" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent via-accent-500/40 to-accent-500/70" />
         </motion.div>
 
         {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-dark-400 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="text-white/45 text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-light"
         >
           {personalInfo.tagline}
         </motion.p>
@@ -94,64 +106,73 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          transition={{ duration: 0.8, delay: 0.45 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <a href="#contact" className="magnetic-btn">
-            <span className="flex items-center gap-2">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              Get in touch
-            </span>
+          {/* Primary CTA */}
+          <a
+            href="#contact"
+            className="group relative inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-white overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #6366f1, #4f46e5)" }}
+          >
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Get in touch
           </a>
+
+          {/* Secondary CTA */}
           <a
             href="#experience"
-            className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-dark-400 hover:text-dark-200 transition-colors"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold border border-white/10 text-white/60 hover:text-white hover:border-white/25 transition-all duration-300"
           >
             View my work
-            <svg
-              className="w-4 h-4 group-hover:translate-y-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Tech stack strip */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ duration: 1, delay: 0.7 }}
+          className="flex flex-wrap items-center justify-center gap-3"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-5 h-8 rounded-full border border-dark-700 flex items-start justify-center p-1.5"
-          >
-            <div className="w-1 h-2 rounded-full bg-accent-500/60" />
-          </motion.div>
+          <span className="text-xs text-white/25 font-medium tracking-widest uppercase mr-2">Tech Stack</span>
+          {techStack.map((tech, i) => (
+            <motion.span
+              key={tech}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 + i * 0.07 }}
+              className="px-3 py-1.5 text-xs font-medium rounded-full border border-white/8 text-white/40 bg-white/3 hover:text-white/70 hover:border-accent-500/30 transition-all duration-300 cursor-default"
+            >
+              {tech}
+            </motion.span>
+          ))}
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs text-white/20 tracking-widest uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center p-1.5"
+        >
+          <div className="w-1 h-2 rounded-full bg-accent-500/60" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
