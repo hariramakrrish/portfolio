@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 
-const techStack = ["Java", "Spring Boot", "Microservices", "AWS", "PostgreSQL", "Docker"];
 
 export default function Hero() {
   return (
@@ -61,10 +60,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
         >
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-2">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-2 uppercase">
             <span className="text-white">{personalInfo.name.split(" ")[0]}</span>
           </h1>
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-8 uppercase">
             <span
               style={{
                 background: "linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #a78bfa 100%)",
@@ -135,26 +134,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Tech stack strip */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-3"
-        >
-          <span className="text-xs text-white/25 font-medium tracking-widest uppercase mr-2">Tech Stack</span>
-          {techStack.map((tech, i) => (
-            <motion.span
-              key={tech}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 + i * 0.07 }}
-              className="px-3 py-1.5 text-xs font-medium rounded-full border border-white/8 text-white/40 bg-white/3 hover:text-white/70 hover:border-accent-500/30 transition-all duration-300 cursor-default"
-            >
-              {tech}
-            </motion.span>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
