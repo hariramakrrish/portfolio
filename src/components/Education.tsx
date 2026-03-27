@@ -5,10 +5,10 @@ import { education, certifications } from "@/data/portfolio";
 
 export default function Education() {
   return (
-    <section id="education" className="relative py-20">
-      <div className="blob w-[400px] h-[400px] bg-purple-600 top-[30%] left-[-150px]" />
+    <section id="education" className="relative py-16 sm:py-20">
+      <div className="absolute top-[30%] left-[-100px] w-[350px] h-[350px] rounded-full bg-purple-600 opacity-[0.05] blur-[80px]" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

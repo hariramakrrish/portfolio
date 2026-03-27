@@ -5,10 +5,10 @@ import { experience } from "@/data/portfolio";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-20">
+    <section id="experience" className="relative py-16 sm:py-20">
       <div className="blob w-[500px] h-[500px] bg-blue-600 bottom-[10%] right-[-200px]" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function Experience() {
               className="glass-card rounded-2xl overflow-hidden gradient-border"
             >
               {/* Header strip */}
-              <div className="px-8 py-6 border-b border-white/[0.03]">
+              <div className="px-4 sm:px-8 py-5 sm:py-6 border-b border-white/[0.03]">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500/20 to-accent-700/10 flex items-center justify-center shrink-0 mt-1">
@@ -98,7 +98,7 @@ export default function Experience() {
               </div>
 
               {/* Highlights */}
-              <div className="px-8 py-6">
+              <div className="px-4 sm:px-8 py-5 sm:py-6">
                 <div className="grid gap-4">
                   {exp.highlights.map((item, j) => (
                     <motion.div

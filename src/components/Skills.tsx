@@ -37,49 +37,91 @@ const iconMap: Record<string, JSX.Element> = {
   ),
 };
 
+const categoryColors: Record<string, string> = {
+  Languages:              "from-blue-500/20 to-blue-600/5",
+  "Backend & Frameworks": "from-violet-500/20 to-violet-600/5",
+  Databases:              "from-emerald-500/20 to-emerald-600/5",
+  "Cloud & DevOps":       "from-sky-500/20 to-sky-600/5",
+  "Data & ML":            "from-pink-500/20 to-pink-600/5",
+  "Practices & Tools":    "from-amber-500/20 to-amber-600/5",
+};
+
+const iconColors: Record<string, string> = {
+  Languages:              "text-blue-400",
+  "Backend & Frameworks": "text-violet-400",
+  Databases:              "text-emerald-400",
+  "Cloud & DevOps":       "text-sky-400",
+  "Data & ML":            "text-pink-400",
+  "Practices & Tools":    "text-amber-400",
+};
+
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-20">
-      <div className="blob w-[400px] h-[400px] bg-violet-600 top-[20%] left-[-150px]" />
+    <section id="skills" className="relative py-16 sm:py-20">
+      <div className="absolute top-[20%] left-[-100px] w-[350px] h-[350px] rounded-full bg-violet-600 opacity-[0.05] blur-[80px]" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
           <span className="section-heading">Tech Stack</span>
-          <h2 className="text-4xl sm:text-5xl font-bold mt-3 text-dark-100">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 text-white">
             Tools & technologies I{" "}
-            <span className="gradient-text-accent">work with</span>
+            <span style={{
+              background: "linear-gradient(135deg, #818cf8, #6366f1, #a78bfa)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>
+              work with
+            </span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {skills.map((skill, i) => (
             <motion.div
               key={skill.category}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="glass-card rounded-2xl p-6 gradient-border group"
+              whileHover={{
+                y: -6,
+                rotateX: 4,
+                rotateY: -4,
+                scale: 1.02,
+                transition: { duration: 0.25, ease: "easeOut" },
+              }}
+              style={{ perspective: 800, transformStyle: "preserve-3d" }}
+              className="glass-card rounded-2xl p-5 sm:p-6 cursor-default relative overflow-hidden group"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-accent-500/10 flex items-center justify-center text-accent-400 group-hover:bg-accent-500/20 transition-colors border border-accent-500/10">
-                  {iconMap[skill.icon]}
+              {/* Gradient top-left glow on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[skill.category] ?? "from-indigo-500/10 to-transparent"} opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl`} />
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center ${iconColors[skill.category] ?? "text-indigo-400"} group-hover:scale-110 transition-transform duration-300`}>
+                    {iconMap[skill.icon]}
+                  </div>
+                  <h3 className="font-bold text-white text-sm sm:text-base">
+                    {skill.category}
+                  </h3>
                 </div>
-                <h3 className="font-bold text-white text-base">
-                  {skill.category}
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span key={item} className="skill-tag">
-                    {item}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <motion.span
+                      key={item}
+                      whileHover={{ scale: 1.08 }}
+                      className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/5 border border-white/8 text-white/60 hover:text-white hover:border-white/20 transition-all duration-200 cursor-default"
+                    >
+                      {item}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

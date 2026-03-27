@@ -5,35 +5,40 @@ import { personalInfo } from "@/data/portfolio";
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-20">
-      <div className="blob w-[500px] h-[500px] bg-indigo-600 bottom-[-200px] left-[50%] -translate-x-1/2" />
+    <section id="contact" className="relative py-16 sm:py-20">
+      <div className="absolute bottom-[-150px] left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-indigo-600 opacity-[0.06] blur-[80px]" />
 
-      <div className="max-w-3xl mx-auto px-6 text-center">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <span className="section-heading">Contact</span>
-          <h2 className="text-3xl sm:text-5xl font-bold mt-3 mb-4 text-dark-100">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4 text-white leading-tight">
             Let&apos;s build something{" "}
-            <span className="gradient-text-accent">great together</span>
+            <span style={{
+              background: "linear-gradient(135deg, #818cf8, #6366f1, #a78bfa)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>great together</span>
           </h2>
-          <p className="text-dark-400 text-lg sm:text-xl max-w-lg mx-auto mb-12 leading-relaxed">
+          <p className="text-white/45 text-base sm:text-lg max-w-lg mx-auto mb-10 leading-relaxed px-2">
             I&apos;m always open to discussing new opportunities, interesting
             projects, or just a friendly chat about technology.
           </p>
         </motion.div>
 
         {/* Contact cards */}
-        <div className="grid sm:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-10">
           <motion.a
             href={`mailto:${personalInfo.email}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-card rounded-2xl p-6 gradient-border group text-center"
+            className="glass-card rounded-2xl p-5 sm:p-6 gradient-border group text-center hover:-translate-y-1 transition-transform duration-300"
           >
             <div className="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-500/20 transition-colors">
               <svg
@@ -62,7 +67,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-card rounded-2xl p-6 gradient-border group text-center"
+            className="glass-card rounded-2xl p-5 sm:p-6 gradient-border group text-center hover:-translate-y-1 transition-transform duration-300"
           >
             <div className="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-500/20 transition-colors">
               <svg
@@ -87,7 +92,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="glass-card rounded-2xl p-6 gradient-border group text-center"
+            className="glass-card rounded-2xl p-5 sm:p-6 gradient-border group text-center hover:-translate-y-1 transition-transform duration-300"
           >
             <div className="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-accent-500/20 transition-colors">
               <svg
