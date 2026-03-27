@@ -61,10 +61,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1 }}
         >
-          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-3">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-2">
             <span className="text-white">{personalInfo.name.split(" ")[0]}</span>
           </h1>
-          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black tracking-tighter leading-none mb-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-8">
             <span
               style={{
                 background: "linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #a78bfa 100%)",
